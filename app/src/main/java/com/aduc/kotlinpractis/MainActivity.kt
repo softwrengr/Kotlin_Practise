@@ -1,5 +1,6 @@
 package com.aduc.kotlinpractis
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,10 +9,11 @@ import com.aduc.kotlinpractis.dagger.AeroPlane
 import com.aduc.kotlinpractis.dagger.DaggerPlaneComponent
 import com.aduc.kotlinpractis.innerClass.OuterClass
 import com.aduc.kotlinpractis.interfaces.Car
+import com.aduc.kotlinpractis.networking.detail.DetailActivity
+import com.aduc.kotlinpractis.networking.login.LoginnActivity
 import com.aduc.kotlinpractis.singeltion.ChildClass
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers.Default
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.delay
@@ -55,7 +57,11 @@ class MainActivity : AppCompatActivity(){
 
         button.setOnClickListener {
           CoroutineScope(IO).launch {
-              fakeApiRequest()
+              //fakeApiRequest()
+
+              var intent = Intent(this@MainActivity,
+                  DetailActivity::class.java)
+              startActivity(intent)
           }
         }
 

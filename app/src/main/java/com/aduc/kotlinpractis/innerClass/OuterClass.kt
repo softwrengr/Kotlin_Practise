@@ -1,5 +1,9 @@
 package com.aduc.kotlinpractis.innerClass
 
+import com.aduc.kotlinpractis.MainActivity
+import java.lang.ref.WeakReference
+
+
 class OuterClass {
 
     var x = 10;
@@ -7,6 +11,8 @@ class OuterClass {
 
 
     inner class InnerClass() {
+
+        private val mainActivity: WeakReference<OuterClass>? = null
         var z = 20
 
         fun getTotal():Int{
